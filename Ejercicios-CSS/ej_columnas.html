@@ -34,6 +34,41 @@
             column-gap: 50px;
             margin: 5px 50px ;
         }
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+        a:hover {
+            color: red;
+        }
+        a {
+            transition: color 0.8s linear 0.2s;
+        }
+        div.transition1 {
+            width: 100px;
+            height: 100px;
+            background: #58e7e7;
+            -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+            transition: width 2s;
+        }
+
+        div:hover.transition1 {
+            width: 300px;
+        }
+        div.transition2 {
+            width: 100px;
+            height: 100px;
+            background: #ff0015;
+            -webkit-transition: width 2s, height 2s, -webkit-transform 2s; /* Safari */
+            transition: width 2s, height 2s, transform 2s;
+        }
+
+        div:hover.transition2 {
+            width: 200px;
+            height: 200px;
+            -webkit-transform: rotate(180deg); /* Safari */
+            transform: rotate(180deg);
+        }
     </style>
 </head>
 <body>
@@ -107,6 +142,10 @@
                 y gastos de transporte. De esta manera, la iniciativa de nuestros ingenieros es un valioso aporte a la
                 sustentabilidad de los ciudadanos de nuestra ciudad.
             </p>
+        </div>
+        <div class="transition1">
+        </div>
+        <div class="transition2">
         </div>
     </article>
 </section>
