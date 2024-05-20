@@ -5,7 +5,7 @@
  * @param {number} valor - valor ingresado en por el usuario
  */
 
-cambiarUnidades = (id,valor) => {
+convertirUnidades = (id,valor) => {
     let valMetro, valPulgada, valPie, valYarda;
     if(isNaN(valor)) {
         alert("El valor ingresado no es un numero");
@@ -34,10 +34,11 @@ cambiarUnidades = (id,valor) => {
         valPulgada = valor*36;
         valPie = valor*3;
     }
-    document.getElementById("metro").value = valMetro;
-    document.getElementById("pulgada").value = valPulgada;
-    document.getElementById("pie").value = valPie;
-    document.getElementById("yarda").value = valYarda;
+    document.getElementById("metro").value = Math.round(valMetro*100)/100;
+    document.getElementById("pulgada").value = Math.round(valPulgada*100)/100;
+    document.getElementById("pie").value = valPie.toFixed(2);
+    document.getElementById("yarda").value = valYarda.toFixed(2);
+
 
 }
 
@@ -54,10 +55,17 @@ function convertirGR(id) {
 
 }
 
-function mostrarOcultar = (valorMO) => {
+let mostrarOcultar = (valorMO) => {
     if(valorMO==="val_mostrar"){
         document.getElementById("divMO").style.display = 'block';
     }else if(valorMO==="val_ocultar"){
         document.getElementById("divMO").style.display = 'none';
     }
+}
+
+let sumar = () => {
+    let num1, num2;
+    num1 = Number(document.getElementsByName("sum_num1")[0].value);
+    num2 = Number(document.getElementsByName("sum_num2")[0].value)
+    document.getElementsByName("sum_total")[0].innerHTML = num1 + num2;
 }
