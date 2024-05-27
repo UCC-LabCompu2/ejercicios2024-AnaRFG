@@ -85,3 +85,25 @@ let sumar = () => {
     num2 = Number(document.getElementsByName("sum_num2")[0].value)
     document.getElementsByName("sum_total")[0].innerHTML = num1 + num2;
 }
+ /**
+  * permite
+  * @method guardarLS
+  */
+
+ function guardarLS(){
+     const distancia = document.getElementById("distancia").value;
+     const unid = document.getElementById("unidades").value;
+     localStorage.setItem("distanciaLS", distancia);
+     localStorage.setItem("unidadLS", unidad);
+ }
+
+/**
+ * toma los valores de distancia y unidad del localstorage
+ * para mostrarlos en un input
+ * @method cargarLS
+ */
+function cargarLS(){
+     const distancia= localStorage.getItem("distanciaLS");
+     const unidad = localStorage.getItem("unidadLS");
+     document.getElementById("dist").value = `{distancia} ${unidad}`;
+ }
