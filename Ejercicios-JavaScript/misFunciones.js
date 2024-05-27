@@ -107,3 +107,63 @@ function cargarLS(){
      const unidad = localStorage.getItem("unidadLS");
      document.getElementById("dist").value = `{distancia} ${unidad}`;
  }
+
+ /**
+  *
+  *
+  * @method dibujarCirculoCuadrado
+  */
+function dibujarCirculoCuadrado(){
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+    ctx.fillstyle = "#289a9a";
+    const xmax = canvas.width;
+    const ymax = canvas.height;
+    const lado = 100;
+    const margen = 10;
+    ctx.fillRect(0+margen,0, ymax-lado-margen, lado);
+
+    ctx.fillstyle = "rgba(199,154,227,0.5)"
+    ctx.arc(xmax/2, ymax/2, 50 , 0, 2*Math.PI);
+    ctx.fill();
+
+ }
+
+/**
+ * carga la funcio de dibujar en el lienzo canvas cuando el usuario mueve el mouse
+ * @method cargarListeners
+ */
+ function cargarListeners(){
+    document.getElementById("lienzo").addEventListener("mousemove", dibujar)
+ }
+
+/**
+ * completar la funcion --dibuja
+ * @method dibujar
+ * @param {event} --documentar movimineto del mouse
+ */
+function dibujar(){
+    const canvas = document.getElementById("lienzo");
+    const ctx = canvas.getContext("2d");
+
+    let posX = event.clientx;
+    let posY = event.clientY;
+    console.log(posX, posY);
+
+    canvas.onmousedown = function ()
+    convas.o =
+
+    ctx.fillstyle = "#7c2789";
+    if(bandera){
+        ctx.fillRect(posX, posY, 5, 5);
+    }
+}
+
+/**
+ * borra todo el contenido del canvas
+ * @method LimpiarCanvas
+ */
+function LimpiarCanvas(){
+    const canvas = document.getElementById("lienzo");
+    canvas.width = canvas.width;
+}
