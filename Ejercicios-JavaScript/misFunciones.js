@@ -150,8 +150,12 @@ function dibujar(){
     let posY = event.clientY;
     console.log(posX, posY);
 
-    canvas.onmousedown = function ()
-    convas.o =
+    canvas.onmousedown = function (){
+
+    }
+    convas.o = {
+
+    }
 
     ctx.fillstyle = "#7c2789";
     if(bandera){
@@ -167,3 +171,58 @@ function LimpiarCanvas(){
     const canvas = document.getElementById("lienzo");
     canvas.width = canvas.width;
 }
+
+/**
+ *
+ */
+function dibujarCuadriculado() {
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const anchoMax = canvas.width;
+    const alturaMax = canvas.height;
+    const paso = 20;
+
+    //dibujo de lineas horizontales
+    for (let i = paso; i < alturaMax; ) {
+        ctx.beginPath();
+        ctx.moveTo(0, i);
+        ctx.lineTo(anchoMax, i);
+        ctx.strokeLine = "#892487"
+        ctx.stroke();
+        ctx.closePath();
+        //i = i+paso;
+        i += paso;
+    }
+
+    //dibujo de lineas verticales
+    for (let i = paso; i < anchoMax; ) {
+        ctx.beginPath();
+        ctx.moveTo(i, 0);
+        ctx.lineTo(i, alturaMax);
+        ctx.strokeLine = "#892487"
+        ctx.stroke();
+        ctx.closePath();
+        //i = i+paso;
+        i += paso;
+    }
+
+    //dibujar eje X
+    ctx.beginPath();
+    ctx.moveTo(0, alturaMax/2);
+    ctx.lineTo(anchoMax, alturaMax/2);
+    ctx.strokeStyle = "#192a90"
+    ctx.stroke();
+    ctx.closePath();
+
+    //dibujar eje Y
+    ctx.beginPath();
+    ctx.moveTo(anchoMax/2, 0);
+    ctx.lineTo(anchoMax/2, alturaMax);
+    ctx.strokeStyle = "#192a90"
+    ctx.stroke();
+    ctx.closePath();
+}
+
+
+
