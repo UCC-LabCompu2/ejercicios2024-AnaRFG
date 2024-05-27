@@ -41,7 +41,12 @@ convertirUnidades = (id,valor) => {
 
 
 }
-
+/**
+ * Convierte un valor ingresado por el usuario en grados o radianes.
+ *  @method convertirGR
+ *  @param {number} grados - Id del elemento grados en el HTML
+ *  @param {number} radianes - Id del elemento radianes en el HTML
+ */
 function convertirGR(id) {
     if(id==="grados"){
         let grad= document.getElementById("grados").value;
@@ -55,6 +60,12 @@ function convertirGR(id) {
 
 }
 
+/**
+ * Convierte un valor ingresado por el usuario en grados o radianes.
+ * @method mostrarOcultar
+ * @param
+ * @param
+ */
 let mostrarOcultar = (valorMO) => {
     if(valorMO==="val_mostrar"){
         document.getElementById("divMO").style.display = 'block';
@@ -62,7 +73,12 @@ let mostrarOcultar = (valorMO) => {
         document.getElementById("divMO").style.display = 'none';
     }
 }
-
+/**
+ * Realiza la suma de dos elementos
+ * @method sumar -definiir
+ * @param {num1} -definiir
+ * @param {num2} -definiir
+ */
 let sumar = () => {
     let num1, num2;
     num1 = Number(document.getElementsByName("sum_num1")[0].value);
