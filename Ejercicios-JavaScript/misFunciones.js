@@ -224,5 +224,17 @@ function dibujarCuadriculado() {
     ctx.closePath();
 }
 
+function dibujarImagen(posX, posY){ //terminar
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    console.log(posX, posY);
+
+    canvas.width = canvas.width;
+    const img
+}
+
+
+
 
 
