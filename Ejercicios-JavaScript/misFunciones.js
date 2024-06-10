@@ -222,6 +222,25 @@ function dibujarCuadriculado() {
     ctx.strokeStyle = "#192a90"
     ctx.stroke();
     ctx.closePath();
+
+    //escribir en el eje X
+    //TODO:calcular numX
+    ctx.font = "10pt Verdana";
+    ctx.fillstyle = "blue";
+    for(let i = 0; i<anchoMax;) {
+        ctx.fillText(String(0), 0, alturaMax / 2, i);
+        i += paso;
+        numX++;
+    }
+
+    //escribir en el eje Y
+    //TODO: terminar ejercicio
+    let numY = 0;
+    for (let i= 0; i<alturaMax; ){
+        ctx.fillText(String(0), 0, anchoMax/2, i );
+        i += paso;
+        numY++;
+    }
 }
 
 function dibujarImagen(posX, posY){ //terminar
@@ -231,10 +250,87 @@ function dibujarImagen(posX, posY){ //terminar
     console.log(posX, posY);
 
     canvas.width = canvas.width;
-    const img
+    const img = new Image();
+    img.src = "images/auto.png";
+
+    if(posX<0 || posY<0){
+        mostrarDialog();
+    }else if(posX>canvas.width || posY>canvas.height);
+}
+
+function mostrarDialog(){
+    const dialog = document.getElementById("myDialog");
+    dialog.showModal();
+}
+
+function cerrarDialog(){
+    const dialog = document.getElementById("myDialog");
+
+}
+
+/**
+ *
+ * @type {number}
+ */
+x = 0
+dx= 2
+function animarAuto(){
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    console.log(posX, posY);
+
+    canvas.width = canvas.width;
+    const img = new Image();
+    img.src = "images/auto.png";
+    img.onload = function (){
+        canvas.width = canvas.width;
+        ctx.drawImage(img, x, 100);
+    }
+    x += dx //posicion de que lo voy a desplazar 2px
+    if(x>canvas.width){
+        x=0;
+    }
 }
 
 
+var intervalId;
+function comenzarAnimacion(){
+    intervalId setInterval(animarAuto, 15);
+    setTimeout(detenerAuto, 6000);
+}
 
+function detenerAuto(){
+    clearInterval(intervalId);
+}
 
+var animarId
+function animarAutoNuevo(){
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    console.log(posX, posY);
+
+    canvas.width = canvas.width;
+    const img = new Image();
+    img.src = "images/auto.png";
+    img.onload = function (){
+        canvas.width = canvas.width;
+        ctx.drawImage(img, x, 100);
+        animarId = requestAnimationFrame(animarAutoNuevo)
+    }
+    x += dx //posicion de que lo voy a desplazar 2px
+    if(x>canvas.width){
+        x=0;
+    }
+
+}
+
+function animarNuevo(){
+    setTimeout(cancelarNuevaAnimacion, 6000);
+    requestAnimationFrame(animarAutoNuevo);
+}
+function cancelarNuevaAnimacion(){
+    cancelAnimationFrame(animarId);
+}
 
