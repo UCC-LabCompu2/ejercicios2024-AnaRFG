@@ -79,11 +79,32 @@ let mostrarOcultar = (valorMO) => {
  * @param {num1} -definiir
  * @param {num2} -definiir
  */
-let sumar = () => {
+let calcularSuma = () => {
     let num1, num2;
     num1 = Number(document.getElementsByName("sum_num1")[0].value);
     num2 = Number(document.getElementsByName("sum_num2")[0].value)
-    document.getElementsByName("sum_total")[0].innerHTML = num1 + num2;
+    document.getElementsByName("sum_total")[0].value = num1 + num2;
+}
+
+let calcularResta = () => {
+    let num1, num2;
+    num1 = Number(document.getElementsByName("res_num1")[0].value);
+    num2 = Number(document.getElementsByName("res_num2")[0].value)
+    document.getElementsByName("res_total")[0].value = num1 - num2;
+}
+
+let calcularProducto = () => {
+    let num1, num2;
+    num1 = Number(document.getElementsByName("mul_num1")[0].value);
+    num2 = Number(document.getElementsByName("mul_num2")[0].value)
+    document.getElementsByName("mul_total")[0].value = num1 * num2;
+}
+
+let calcularCociente = () => {
+    let num1, num2;
+    num1 = Number(document.getElementsByName("div_num1")[0].value);
+    num2 = Number(document.getElementsByName("div_num2")[0].value)
+    document.getElementsByName("div_total")[0].value = num1 / num2;
 }
  /**
   * permite
@@ -296,7 +317,7 @@ function animarAuto(){
 
 var intervalId;
 function comenzarAnimacion(){
-    intervalId setInterval(animarAuto, 15);
+    intervalId; setInterval(animarAuto, 15);
     setTimeout(detenerAuto, 6000);
 }
 
